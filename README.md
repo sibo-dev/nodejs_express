@@ -33,6 +33,7 @@ Below will be a list of design decisions and thoughts that I had while working o
 
 I decided to use a file structure that is similar to what I have used in the past. I have a `prisma` folder that contains the `schema.prisma` file and a `seed.js` file. The `schema.prisma` file is used to define the database schema and the `seed.js` file is used to seed the database with some initial data. I also have a `src` folder that contains the `index.js` file. This file is used to start the server and define the routes. I have a `routes.js` file that is used to define the routes for the server. I also have a `package.json` file that is used to define the dependencies for the project.
 
+```txt
 .
 ├── prisma
 │   ├── schema.prisma
@@ -45,6 +46,7 @@ I decided to use a file structure that is similar to what I have used in the pas
 ├── README.md
 ├── routes.js
 └── yarn.lock
+```
 
 ## Routes
 
