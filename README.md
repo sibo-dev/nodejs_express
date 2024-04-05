@@ -1,5 +1,30 @@
 # Overview of project
 
+Hello 👋,
+
+Thanks for taking the time to this project.
+
+The goal of this exercise is to demonstrate my backend skills in developing lean microservices in JavaScript (Node.js, ExpressJS, 3rd-party integration, and testing).
+
+Using and Express.js I created a REST endpoint that talks to a relational database
+
+## The Challenge
+
+- API must allow two things and must return JSON:
+
+  1. Allow users to request for available cleaners.
+  2. Allow users to see the ratings of a cleaner.
+  3. Allow users to rate a cleaner.
+  4. Allow users to pay for a cleaner's service.
+  
+- The following must be behind HTTP Bearer Authentication. Use any credentials of your choice:
+
+  1. Allow cleaners to see how much they've made in a day, month....
+  2. Allow cleaners to task that needs to be completed.
+  3. Allow cleaners to see list of completed task.
+
+- Code must be tested using any framework
+
 ## Design Decisions and Thoughts
 
 Below will be a list of design decisions and thoughts that I had while working on this project. I will also include some of the things that I would have liked to have done if I had more time.
@@ -15,7 +40,6 @@ I decided to use a file structure that is similar to what I have used in the pas
 ├── src
 │   └── index.js
 ├── .gitignore
-├── DESIGN_EXPLANATION.md
 ├── package-lock.json
 ├── package.json
 ├── README.md
