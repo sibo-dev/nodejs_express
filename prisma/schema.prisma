@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Cleaners {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  name      String
+  email     String   @unique
+  phone     String?
+  services  String?
+  price     Int     
+  rating    Int?      
+  Rating    Rating[]
+  Booking   Booking[]
+  Tasks     Tasks[]
+}
+
+model Booking {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  date       DateTime?
+  amountDue  Int?
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     Int?
+  cleaners   Cleaners? @relation(fields: [cleanersId], references: [id])
+  cleanersId Int?
+  Tasks      Tasks[]
+  Payments   Payments[]
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  createdAt DateTime   @default(now())
+  firstName String?
+  lastName  String?
+  email     String     @unique
+  Rating    Rating[]
+  Booking   Booking[]
+}
+
+model Rating {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  rating     Int
+  comment    String?
+  cleaners   Cleaners? @relation(fields: [cleanersId], references: [id])
+  cleanersId Int?
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     Int?
+}
+
+model Tasks {
+  id  Int    @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String
+  done Boolean @default(false)
+  booking Booking? @relation(fields: [bookingId], references: [id])
+  bookingId Int?
+  cleaners Cleaners? @relation(fields: [cleanersId], references: [id])
+  cleanersId Int?
+}
+
+model Payments {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  amount    Float
+  booking   Booking? @relation(fields: [bookingId], references: [id])
+  bookingId Int?
+}
+
