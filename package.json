@@ -22,6 +22,7 @@
     "init"  : "npx prisma migrate dev --name init",
     "seed": "node prisma/seed.js",
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   }
 }

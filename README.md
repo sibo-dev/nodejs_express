@@ -95,6 +95,14 @@ Below will be a list of the steps to run the project.
 
 Should you have any issues, please feel free to reach out to me. I will be happy to help or to create a video call to walk you through the process.
 
+### How to run tests
+
+In order to run tests for the project, you can run the following command:
+
+```bash
+npm test
+```
+
 ## Assumptions
 
 Below will be a list of the assumptions that I made while working on this project.
