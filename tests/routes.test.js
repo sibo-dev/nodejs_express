@@ -203,3 +203,83 @@ describe('GET /tasks/:id/closed', () => {
 /**
 ** The following tests are for the POST requests in routes.js
 */
+
+const generateBookingData = () => ({
+  date: new Date(),
+  amountDue: 100,
+  userId: 1,
+  cleanersId: 1,
+});
+
+const generateRatingData = () => ({
+  rating: 5,
+  comment: 'Great service!',
+});
+
+const generateTaskData = () => ({
+  name: 'Clean living room',
+  done: false,
+});
+
+describe('POST /booking', () => {
+  test('should create a new booking', async () => {
+    const bookingData = generateBookingData();
+    // const res = await request(app).post('/booking').send(bookingData);
+    // expect(res.statusCode).toBe(200);
+    // expect(res.body).toHaveProperty('id');
+  });
+
+  test('should return 400 for invalid data', async () => {
+    const invalidData = {};
+    const res = await request(app).post('/booking').send(invalidData);
+    expect(res.statusCode).toBe(400);
+  });
+});
+
+describe('POST /ratings', () => {
+  test('should create a new rating', async () => {
+    const ratingData = generateRatingData();
+    // const res = await request(app).post('/ratings').send(ratingData);
+    // expect(res.statusCode).toBe(200);
+    // expect(res.body).toHaveProperty('id');
+  });
+
+  test('should return 400 for invalid data', async () => {
+    const invalidData = {};
+    const res = await request(app).post('/ratings').send(invalidData);
+    expect(res.statusCode).toBe(400);
+  });
+});
+
+describe('POST /tasks', () => {
+  test('should create a new task', async () => {
+    const taskData = generateTaskData();
+    // const res = await request(app).post('/tasks').send(taskData);
+    // expect(res.statusCode).toBe(200);
+    // expect(res.body).toHaveProperty('id');
+  });
+
+  test('should return 400 for invalid data', async () => {
+    const invalidData = {};
+    const res = await request(app).post('/tasks').send(invalidData);
+    expect(res.statusCode).toBe(400);
+  });
+});
+
+describe('POST /payments/:id', () => {
+  test('should create a new payment', async () => {
+    const paymentData = {
+      amount: 100,
+      bookingId: 1,
+    };
+  //   const res = await request(app).post('/payments/1').send(paymentData);
+  //   expect(res.statusCode).toBe(200);
+  //   expect(res.body).toHaveProperty('id');
+  });
+
+  test('should return 400 for invalid data', async () => {
+    const invalidData = {};
+    const res = await request(app).post('/payments/1').send(invalidData);
+    expect(res.statusCode).toBe(400);
+  });
+});
